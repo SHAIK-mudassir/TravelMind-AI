@@ -1,0 +1,122 @@
+# =============================================================================
+# TravelMind AI - Production .gitignore
+# Only include essential files for deployment and exclude development/testing files
+# =============================================================================
+
+# Environment and Credentials
+.env
+.env.local
+.env.production
+.env.staging
+*.key
+*.json
+service-account*.json
+google-credentials*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs and Databases
+*.log
+*.sqlite3
+*.db
+
+# Testing and Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+
+# =============================================================================
+# DEVELOPMENT AND TESTING FILES (NOT NEEDED FOR PRODUCTION)
+# =============================================================================
+
+# Setup and Testing Scripts
+run_in_cloud_shell.sh
+setup_cloud_shell.py
+check_available_models.py
+check_environment.py
+simple_vertex_test.py
+test_locations_fixed.py
+enable_apis.ps1
+
+# Documentation (keep only README.md)
+CLOUD_SHELL_SETUP.md
+SETUP_GUIDE.md
+docs/
+
+# Development Utilities
+utils/setup_bigquery.py
+utils/populate_sample_data.py
+utils/test_complete_setup.py
+utils/test_ai_service.py
+utils/test_bigquery.py
+utils/test_maps.py
+utils/test_youtube.py
+utils/debug_*.py
+utils/fix_*.py
+
+# Configuration Files (keep only production configs)
+.env.template
+streamlit_config.toml
+
+# Data Files (sample data not needed in production)
+data/
+
+# Temporary and Cache Files
+*.tmp
+*.temp
+.cache/
+.streamlit/
+
+# =============================================================================
+# KEEP THESE ESSENTIAL FILES FOR PRODUCTION:
+# - app.py (main application)
+# - requirements.txt (dependencies)
+# - services/ (core AI services)
+# - config/ (production configuration)
+# - submission/ (hackathon materials)
+# - README.md (documentation)
+# - app.yaml (deployment config)
+# - Dockerfile (containerization)
+# =============================================================================

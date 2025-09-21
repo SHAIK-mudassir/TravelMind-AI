@@ -1,0 +1,27 @@
+streamlit>=1.27.0
+google-cloud-bigquery>=3.11.4
+google-cloud-aiplatform>=1.39.0
+google-cloud-core>=2.3.3
+vertexai>=0.0.1
+google-genai>=0.3.0
+google-auth>=2.23.0
+google-api-python-client>=2.97.0
+google-auth-httplib2>=0.1.1
+google-auth-oauthlib>=1.1.0
+protobuf>=4.24.3
+python-dotenv>=1.0.0
+firebase-admin>=6.2.0
+googlemaps>=4.10.0
+google-cloud-translate>=3.12.0
+pandas>=2.1.1
+requests>=2.31.0
+fpdf2>=2.7.4
+Pillow>=10.0.1
+python-dateutil>=2.8.2
+pathlib>=1.0.1
+geopy>=2.4.0
+folium>=0.14.0  # for map visualization
+plotly>=5.17.0  # for interactive visualizations
+pydeck>=0.8.0   # for 3D map visualization
+streamlit-folium>=0.13.0  # for displaying folium maps in streamlit
+google-oauth2-tool

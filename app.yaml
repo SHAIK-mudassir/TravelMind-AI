@@ -1,0 +1,14 @@
+runtime: python39
+service: travelmind-ai
+
+env_variables:
+  GOOGLE_CLOUD_PROJECT: "your-project-id"
+  VERTEXAI_LOCATION: "us-central1"
+  
+automatic_scaling:
+  min_instances: 0
+  max_instances: 10
+  
+resources:
+  cpu: 1
+  memory_gb: 2
