@@ -76,6 +76,30 @@ def get_maps_service():
 maps_service = None
 ai_service = None
 
+def validate_environment_for_cloud():
+    """Validate environment variables for Cloud Run deployment"""
+    required_vars = [
+        'GOOGLE_CLOUD_PROJECT',
+        'GOOGLE_MAPS_API_KEY',
+        'VERTEXAI_LOCATION'
+    ]
+    
+    missing_vars = []
+    for var in required_vars:
+        if not os.getenv(var):
+            missing_vars.append(var)
+    
+    if missing_vars:
+        st.error(f"Missing required environment variables: {', '.join(missing_vars)}")
+        st.error("Please check your environment configuration.")
+        st.stop()
+    
+    # Only check credentials file if running locally (not in Cloud Run)
+    if not os.getenv('K_SERVICE'):  # K_SERVICE is set in Cloud Run
+        creds_path = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
+        if creds_path and not os.path.exists(creds_path):
+            st.error(f"Credentials file not found at: {creds_path}")
+            st.stop()
 try:
     # Check if running in Cloud Shell
     is_cloud_shell = os.path.exists('/google/devshell/bashrc') or 'DEVSHELL_GCLOUD_CONFIG' in os.environ
@@ -84,7 +108,7 @@ try:
         st.info("🌟 Running in Google Cloud Shell - using default credentials")
     else:
         # Validate environment variables for local development
-        validate_environment()
+        validate_environment_for_cloud()
         
         # Show credentials path for debugging
         creds_path = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
@@ -100,6 +124,8 @@ except Exception as e:
     st.error(f"Failed to initialize Google Cloud services: {str(e)}")
     st.info("Please make sure you have set up your Google Cloud credentials correctly.")
     st.stop()
+
+
 
 def main():
     st.title("🧠 TravelMind AI - Your Intelligent Travel Companion")
